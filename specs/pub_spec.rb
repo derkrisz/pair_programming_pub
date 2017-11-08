@@ -65,18 +65,15 @@ class TestPub < MiniTest::Test
     assert_equal(20, @customer.wallet)
   end
 
-  # def test_drunkenness_level__under
-  #   customer_drunk = @customer.over_limit?
-  #   assert_equal(true, customer_drunk)
-  # end
-  #
-  # def test_drunkenness_level__over
-  #   customer_drunk = @customer1.over_limit?
-  #   assert_equal(false, customer_drunk)
-  # end
+  def test_drunkenness_level__under
+    customer_drunk = @customer.over_limit?(@pub.limit)
+    assert_equal(true, customer_drunk)
+  end
 
-
-
+  def test_drunkenness_level__over
+    customer_drunk = @customer1.over_limit?(@pub.limit)
+    assert_equal(false, customer_drunk)
+  end
 
 
 

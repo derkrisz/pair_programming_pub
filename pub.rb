@@ -9,10 +9,6 @@ attr_reader :name, :drinks, :till, :limit
     @limit = limit
   end
 
-  # def over_limit?
-  #   @limit <= 10
-  # end
-
 
   def drink_exists?(drink_name)
     for drink in @drinks
@@ -28,7 +24,7 @@ attr_reader :name, :drinks, :till, :limit
     return if drink == nil
     return if !customer.sufficient_funds?(drink)
     return if !customer.legal_age?()
-    # return if !customer.over_limit?()
+    return if !customer.over_limit?(@limit)
     @till += drink.price
     customer.pay_for_drink(drink)
   end

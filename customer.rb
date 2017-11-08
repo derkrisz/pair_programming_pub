@@ -29,6 +29,14 @@ attr_reader :name, :wallet, :age, :drunkenness
     @drunkenness += drink.alcohol_level
   end
 
+  def over_limit?(limit)
+    if limit <= 10 && @drunkenness <=10
+      return true
+    else
+      return false
+    end
+  end
+
 
 
 end
